@@ -1,0 +1,254 @@
+/* Reset and general styles */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: linear-gradient(135deg, #6a11cb, #2575fc); /* Light gradient background */
+    color: #333;
+    padding: 20px;
+ }
+
+.bubble-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    overflow: hidden;
+    z-index: -1;
+}
+
+.bubble {
+    position: absolute;
+    bottom: -100px;
+    width: 40px;
+    height: 40px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 50%;
+    animation: rise 10s infinite ease-in-out; /* Reduced animation duration for a faster effect */
+    animation-delay: calc(-10s * var(--i));
+}
+
+.bubble:nth-child(1) { --i: 1; left: 10%; }
+.bubble:nth-child(2) { --i: 2; left: 20%; }
+.bubble:nth-child(3) { --i: 3; left: 30%; }
+.bubble:nth-child(4) { --i: 4; left: 40%; }
+.bubble:nth-child(5) { --i: 5; left: 50%; }
+.bubble:nth-child(6) { --i: 6; left: 60%; }
+.bubble:nth-child(7) { --i: 7; left: 70%; }
+.bubble:nth-child(8) { --i: 8; left: 80%; }
+.bubble:nth-child(9) { --i: 9; left: 90%; }
+.bubble:nth-child(10) { --i: 10; left: 100%; }
+
+@keyframes rise {
+    0%, 100% { bottom: -100px; transform: translateX(0); }
+    50% { bottom: 110%; transform: translateX(30px); }
+}
+
+.container {
+    max-width: 900px;
+    margin: 50px auto; /* Added margin to create space for the bubbles */
+    background: linear-gradient(135deg, #e0eafc, #cfdef3);  /* Semi-transparent background for glass effect */
+    border-radius: 15px;
+    padding: 30px;
+    backdrop-filter: blur(15px); /* Frosted glass effect with stronger blur */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */
+    position: relative;
+    z-index: 1; /* Ensure container is above the bubbles */
+}
+
+/* The rest of your styles remain unchanged */
+header {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+header h1 {
+    margin: 0;
+    font-size: 2rem;
+}
+
+.controls {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center;
+    margin: 30px 0 40px;
+}
+
+.control-btn {
+    background: linear-gradient(135deg, #ff7e5f, #feb47b); /* Gradient button background */
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 1rem;
+}
+
+.control-btn i {
+    font-size: 1.2rem;
+}
+
+.control-btn:hover {
+    background: linear-gradient(135deg, #feb47b, #ff7e5f); /* Inverted gradient on hover */
+    transform: scale(1.05);
+}
+
+.form-elements {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.form-element {
+    background: #ffffff;
+    color: #333;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s, box-shadow 0.3s;
+    cursor: move;
+    border: 1px solid #ddd;
+}
+
+.form-element.dragging {
+    background: #ffffff; /* Keep background color */
+    border: 2px dotted #007bff; /* Blue border for dragging */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3); /* Enhanced shadow for drag effect */
+    opacity: 0.8; /* Slight transparency */
+    transform: scale(1.02); /* Slight scale increase for emphasis */
+}
+
+.form-element:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.form-element label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+    color: #007bff;
+}
+
+input, textarea{
+    width: calc(100% - 25px);
+    padding: 12px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
+    font-size: 1rem;
+}
+textarea::placeholder{
+    font-family: Arial, sans-serif;
+    
+}
+select{
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
+    font-size: 1rem;
+    appearance: none; /* Remove default styling */
+    position: relative;
+}
+.select-wrapper{
+    position: relative;
+}
+.select-wrapper i{
+    font-family: 'Font Awesome 5 Free';
+    font-weight: 900;
+    position: absolute;
+    right: 20px;
+    top: 22px;
+    transform: translateY(-50%);
+    pointer-events: none;
+    color: #333;
+    z-index: 1;
+}
+textarea {
+    resize: vertical;
+}
+
+select {
+    appearance: none; /* Remove default styling */
+    background: #f8f9fa; /* Light background for selects */
+    padding: 12px;
+    border: 1px solid #ccc;
+}
+
+button {
+    background: linear-gradient(135deg, #6a11cb, #2575fc); /* Gradient button background */
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s;
+    font-size: 0.875rem;
+}
+
+button:hover {
+    background: linear-gradient(135deg, #2575fc, #6a11cb); /* Inverted gradient on hover */
+    transform: scale(1.05);
+}
+
+.options-container {
+    margin-top: 10px;
+}
+
+.select-option {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 5px;
+}
+
+.select-option span {
+    flex: 1;
+}
+
+.select-option button {
+    background: linear-gradient(135deg, #ff4b2b, #ff416c);
+    font-size: 0.75rem;
+    padding: 5px;
+}
+
+.select-option button:hover {
+    background: linear-gradient(135deg, #ff416c, #ff4b2b);
+}
+/* .delete-btn {
+    background: linear-gradient(135deg, #ff4b2b, #ff416c);
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 8px 12px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s;
+    font-size: 0.875rem;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+ */
+.delete-btn i {
+    font-size: 14px;
+    margin-right: 5px;
+}
+
+/* .delete-btn:hover {
+    background: linear-gradient(135deg, #ff416c, #ff4b2b);
+    transform: scale(1.05);
+} */
+.delete-option-btn i{
+    font-size: 12px;
+    margin-right: 7px;
+}
